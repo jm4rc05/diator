@@ -82,7 +82,8 @@ test = [
   "di[anyio]",
   "rodi",
   "aio_pika",
-  "asyncio"
+  "asyncio",
+  "dependency-injector",
 ]
 
 [tool.isort]
