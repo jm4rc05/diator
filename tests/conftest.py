@@ -1,9 +1,11 @@
+import aio_pika
 import pytest
 import redis.asyncio as redis
-import aio_pika
 
-from diator.message_brokers.redis import RedisMessageBroker
 from diator.message_brokers.rabbitmq import RabbitMQMessageBroker
+from diator.message_brokers.redis import RedisMessageBroker
+
+
 @pytest.fixture()
 def redis_client() -> redis.Redis:
     return redis.Redis.from_url("redis://localhost:6379/0")
