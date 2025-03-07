@@ -5,8 +5,9 @@ build-backend = "hatchling.build"
 [project]
 name = "diator"
 version = "0.1.2"
-authors = [{ name = "Murad Akhundov", email = "akhundov1murad@gmail.com" }]
-description = "Diator is a Python library for implementing CQRS pattern in your Python applications."
+authors = [{ name = "Murad Akhundov", email = "akhundov1murad@gmail.com" },
+           { name = "José Marcos Gomes", email = "jose.marcos.gomes@gmail.com" }]
+description = "This is a fork from Diator, a Python library for implementing CQRS pattern in your applications. The original project is apparently abandoned."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
@@ -59,8 +60,8 @@ exclude = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/akhundMurad/diator"
-"Bug Tracker" = "https://github.com/akhundMurad/diator/issues"
+"Homepage" = "https://github.com/jm4rc05/diator"
+"Bug Tracker" = "https://github.com/jm4rc05/diator/issues"
 
 [project.optional-dependencies]
 redis = ["redis"]

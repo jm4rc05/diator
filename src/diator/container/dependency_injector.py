@@ -1,6 +1,6 @@
 from typing import Type, TypeVar
 
-from dependency_injector import containers, providers
+from dependency_injector import containers
 
 T = TypeVar("T")
 
@@ -20,8 +20,6 @@ class DependencyInjectorContainer:
         self._external_container = container
 
     async def resolve(self, type_: Type[T]) -> T:
-        provider = getattr(self.external_container, type_.__name__, None)
-        if provider is None or not isinstance(provider, providers.Provider):
-            raise ValueError(f"No provider found for {type_}")
+        provider = self.external_container.providers['dependency']
 
         return provider()
