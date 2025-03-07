@@ -40,10 +40,10 @@ class TestMiddleware:
 
 
 @pytest.fixture
-def mediator() -> Mediator:
+def mediator(redis_client) -> Mediator:
     container = Container()
     container.register_factory(
-        lambda: redis.Redis.from_url("redis://localhost:6379/0"),
+        lambda: redis_client,
         redis.Redis,
         ServiceLifeStyle.TRANSIENT,
     )
@@ -54,7 +54,7 @@ def mediator() -> Mediator:
     request_map = RequestMap()
     request_map.bind(JoinMeetingRoomCommand, JoinMeetingRoomCommandHandler)
 
-    redis_client = redis.Redis.from_url("redis://localhost:6379/0")
+    redis_client = redis_client
     middleware_chain = MiddlewareChain()
     middleware_chain.add(TestMiddleware())
 
@@ -73,10 +73,10 @@ def mediator() -> Mediator:
 
 
 @pytest.fixture
-def mediator_without_broker() -> Mediator:
+def mediator_without_broker(redis_client) -> Mediator:
     container = Container()
     container.register_factory(
-        lambda: redis.Redis.from_url("redis://localhost:6379/0"),
+        lambda: redis_client,
         redis.Redis,
         ServiceLifeStyle.TRANSIENT,
     )
@@ -104,10 +104,10 @@ def mediator_without_broker() -> Mediator:
 
 
 @pytest.fixture
-def mediator_without_event_emitter() -> Mediator:
+def mediator_without_event_emitter(redis_client) -> Mediator:
     container = Container()
     container.register_factory(
-        lambda: redis.Redis.from_url("redis://localhost:6379/0"),
+        lambda: redis_client,
         redis.Redis,
         ServiceLifeStyle.TRANSIENT,
     )
