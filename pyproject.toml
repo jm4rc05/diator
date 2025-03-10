@@ -66,6 +66,7 @@ exclude = [
 [project.optional-dependencies]
 redis = ["redis"]
 azure = ["azure-servicebus"]
+rabbitmq = ["aio_pika"]
 test = [
   "pytest",
   "pytest-asyncio",
